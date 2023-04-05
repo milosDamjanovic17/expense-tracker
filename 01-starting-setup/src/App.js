@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/Expenses/NewExpense/NewExpense"; 
 
 const App = () => {
 
@@ -34,16 +35,23 @@ const App = () => {
 
   ];
 
+  const addExpenseHandler = expense => {
+    console.log('in addExpenseHandler in app.js');
+    console.log(expense);
+  }
+
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense = {addExpenseHandler}/>
       <Expenses
         items = {expenses}
       />
     </div>
   );
 }
+
+export default App;
 
 /*
   HOW WAS REACT RETURN STATEMENT WRITTEN BEFORE JSX, USING REACT OBJ
@@ -57,4 +65,4 @@ const App = () => {
 
 */
 
-export default App;
+
