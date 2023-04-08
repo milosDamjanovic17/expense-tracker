@@ -1,9 +1,9 @@
+import React, {useState} from 'react'
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/Expenses/NewExpense/NewExpense"; 
 
-const App = () => {
-
-  const expenses = [
+  // dummy starting collection(array) of expenses
+  const DUMMY_EXPENSES = [
 
     {
       id: 'e1',
@@ -16,7 +16,7 @@ const App = () => {
       id: 'e2',
       amount: 167.3,
       title: 'New TV',
-      date: new Date(2021, 4, 12)
+      date: new Date(2020, 4, 12)
     },
 
     {
@@ -35,10 +35,18 @@ const App = () => {
 
   ];
 
-  const addExpenseHandler = expense => {
-    console.log('in addExpenseHandler in app.js');
-    console.log(expense);
-  }
+  const App = () => {
+  
+    // using destructuring, set current and new state of expenses collection
+   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+   // define action and add expense that user created
+   const addExpenseHandler = expense => {
+    
+    setExpenses(prevExpenses => {
+      return [expense, ...prevExpenses];
+    });
+  };
 
 
   return (
