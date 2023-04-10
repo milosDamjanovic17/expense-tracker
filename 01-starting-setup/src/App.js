@@ -40,18 +40,21 @@ import NewExpense from "./components/Expenses/NewExpense/NewExpense";
     // using destructuring, set current and new state of expenses collection
    const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-   // define action and add expense that user created
+   // define action and add expense that user created, remember that React provide us with current state for free, in this case prevExpenses === expenses(useState(DUMMY_EXPENSES))
    const addExpenseHandler = expense => {
     
+    // when we update the state and we depend on the previous one, we want to make sure that we get latest state, therefore it's recommended to use function within a state
     setExpenses(prevExpenses => {
       return [expense, ...prevExpenses];
     });
   };
 
-
+  
   return (
     <div>
+      {/* Rendering NewExpense component and passing addExpenseHandler to add expense */}
       <NewExpense onAddExpense = {addExpenseHandler}/>
+      {/* Storing Expenses object and passing to Expenses component where will further manipulate with it */}
       <Expenses
         items = {expenses}
       />

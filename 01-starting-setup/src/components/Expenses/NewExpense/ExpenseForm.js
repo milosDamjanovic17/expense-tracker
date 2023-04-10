@@ -18,6 +18,7 @@ const ExpenseForm = (props) => {
 //    }
 //);
 
+    // handler for title input state
    const titleChangeHandler = (e) =>{
 
     // prefered way with assigning to specific state field
@@ -35,30 +36,34 @@ const ExpenseForm = (props) => {
         // })
     };
 
+    // handler for amount input state
     const amountChangeHandler = (e) => {
 
         setEnteredAmount(e.target.value);
 
     };
 
+    // handler for date input state
     const dateChangeHandler = (e) => {
 
 
         setEnteredDate(e.target.value);
     };
 
+    // handler for Add Expense button inside the form
     const submitHandler = (e) => {
         e.preventDefault();
 
         const expenseData = {
             title: enteredTitle,
-            amount: +enteredAmount,
+            amount: +enteredAmount, // adding a plus automatically converts field to number/integer
             date: new Date(enteredDate)
         };
         
         console.log('in submitHandler function in ExpenseForm.js');
         props.onSaveExpenseData(expenseData);
-
+        
+        // set input fields back to blank state
         setEneteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');

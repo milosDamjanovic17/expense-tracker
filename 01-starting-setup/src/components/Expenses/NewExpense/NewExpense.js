@@ -5,6 +5,7 @@ import ExpenseForm from './ExpenseForm'
 
 const NewExpense = (props) => {
 
+    // state for showing/closing ExpenseForm
     const [isEditing, setIsEditing] = useState(false);
 
     const saveExpenseDataHandler = (enteredExpenseData) => {

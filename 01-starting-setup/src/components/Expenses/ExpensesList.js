@@ -5,7 +5,7 @@ import ExpenseItem from './ExpenseItem';
 const ExpensesList = (props) => {
 
 
-    // define default message if no items are found from selected year and store it in let
+    // define default message if no items are found from selected year and return it
     if(props.items.length === 0) {
 
         return <h2 className='expenses-list__fallback'>Found no expenses.</h2>
