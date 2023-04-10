@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Expenses.css';
-import ExpenseFilter from './ExpenseFilter';
 import Card from '../UI/Card';
+import ExpenseFilter from './ExpenseFilter';
 import ExpensesList from './ExpensesList';
 import ExpensesChart from './ExpensesChart';
 
@@ -11,7 +11,8 @@ const Expenses = (props) => {
     const [inputFilterYear, setInputFilterYear] = useState('2022');
     // we'll receive selectedYear from ExpenseFilter component, binded with onChangeFilter keyword
     const filterChangeHandler = (selectedYear) => {
-
+        
+        console.log(`Year we selected: ${selectedYear}`);
         setInputFilterYear(selectedYear);
     };
 
