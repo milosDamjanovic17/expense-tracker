@@ -48,10 +48,12 @@ import NewExpense from "./components/Expenses/NewExpense/NewExpense";
     });
   };
 
-
+  
   return (
     <div>
+      {/* Rendering NewExpense component and passing addExpenseHandler to add expense */}
       <NewExpense onAddExpense = {addExpenseHandler}/>
+      {/* Storing Expenses object and passing to Expenses component where will further manipulate with it */}
       <Expenses
         items = {expenses}
       />
